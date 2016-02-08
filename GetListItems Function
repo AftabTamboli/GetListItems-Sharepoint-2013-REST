@@ -1,4 +1,4 @@
-function getListItems_Practice(listName, siteurl, filterVal) {
+function getListItems(listName, siteurl, filterVal) {
 $.ajax({
         url: siteurl + "/_api/web/lists/getbytitle('" + listName + "')/items?$filter=substringof('"+filterVal+"',Title)",
        method: "GET",
