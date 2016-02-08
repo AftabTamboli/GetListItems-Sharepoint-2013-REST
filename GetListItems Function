@@ -1,0 +1,19 @@
+function getListItems_Practice(listName, siteurl, filterVal) {
+$.ajax({
+        url: siteurl + "/_api/web/lists/getbytitle('" + listName + "')/items?$filter=substringof('"+filterVal+"',Title)",
+       method: "GET",
+       async:false,
+        headers: { "Accept": "application/json; odata=verbose" },
+        success: function (data) {
+        	$(data.d.results).each(function(){
+           FilteredData.push(this); // this is global array in which data is pushed
+        });
+
+          // FilteredData.push(data.d.results[0]);
+          
+         },
+         error: function (data) {
+             alert(data);
+         }
+    });
+ }
